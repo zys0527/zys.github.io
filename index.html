@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>图形打印程序</title>
+</head>
+<body>
+    <h2>请输入要打印的行数：</h2>
+    <input type="number" id="rowsInput" placeholder="请输入行数">
+    <button onclick="printShapes()">打印图形</button>
+    <div id="output"></div>
+
+    <script>
+		// 219970143-张运松
+        function printShapes() {
+            let rows = document.getElementById('rowsInput').value;
+            let output = document.getElementById('output');
+            output.innerHTML = ""; // 清空之前的输出
+
+            // 打印五行三角形
+            output.innerHTML += "五行三角形：<br>";
+            for (let i = 1; i <= rows; i++) {
+                for (let j = 1; j <= i; j++) {
+                    output.innerHTML += "*";
+                }
+                output.innerHTML += "<br>";
+            }
+            output.innerHTML += "<br>";
+
+            // 打印五行平行四边形
+            output.innerHTML += "五行平行四边形：<br>";
+            for (let i = 1; i <= rows; i++) {
+                for (let j = 1; j < i; j++) {
+                    output.innerHTML += "&nbsp;";
+                }
+                for (let k = 1; k <= rows; k++) {
+                    output.innerHTML += "*";
+                }
+                output.innerHTML += "<br>";
+            }
+            output.innerHTML += "<br>";
+
+            // 打印五行菱形
+            output.innerHTML += "五行菱形：<br>";
+            for (let i = 1; i <= rows; i++) {
+                for (let j = rows; j > i; j--) {
+                    output.innerHTML += "&nbsp;";
+                }
+                for (let k = 1; k <= 2 * i - 1; k++) {
+                    output.innerHTML += "*";
+                }
+                output.innerHTML += "<br>";
+            }
+            for (let i = rows - 1; i >= 1; i--) {
+                for (let j = rows; j > i; j--) {
+                    output.innerHTML += "&nbsp;";
+                }
+                for (let k = 1; k <= 2 * i - 1; k++) {
+                    output.innerHTML += "*";
+                }
+                output.innerHTML += "<br>";
+            }
+            output.innerHTML += "<br>";
+        }
+    </script>
+</body>
+</html>
