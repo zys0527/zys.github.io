@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>会移动的坦克</title>
+		<style type="text/css">
+			input {
+				font-size: 26px;
+				margin-top: 20px;
+			}
+
+			body {
+				background-image: url(img/grassland.png);
+			}
+
+			#mytank {
+				position: absolute;
+				left: 10px;
+				top: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<img id="mytank" src="img/right.png" />
+		<script>
+			// 获取到坦克
+			let tank = document.getElementById("mytank")
+			// 添加事件监听器
+			document.addEventListener("keydown", function(event) {
+				// 获取当前坦克的位置
+				let tankLeft = parseInt(window.getComputedStyle(tank).left);
+				let tankTop = parseInt(window.getComputedStyle(tank).top);
+				// 获取当前屏幕的尺寸大小
+				let screenWidth = window.innerWidth;
+				let screenHeight = window.innerHeight;
+
+				// 根据按键移动坦克
+				switch (event.key) {
+					case "w":
+						// 切换坦克的方向，将原始tank图像发生改变
+						let upImg = "../img/up.png";
+						document.getElementById("mytank").src = upImg;
+						// 根据当前位置去调整位置
+						if (tankTop > 0) {
+							tank.style.top = (tankTop - 10) + "px";
+						}
+						break;
+					case "s":
+						let downImg = "img/down.png";
+						document.getElementById("mytank").src = downImg;
+						if (tankTop < screenHeight - tank.offsetHeight) {
+							tank.style.top = (tankTop + 10) + "px";
+						}
+						break;
+					case "a":
+						let leftImg = "img/left.png";
+						document.getElementById("mytank").src = leftImg;
+						if (tankLeft > 0) {
+							tank.style.left = (tankLeft - 10) + "px";
+						}
+						break;
+					case "d":
+						let rightImg = "img/right.png";
+						document.getElementById("mytank").src = rightImg;
+						if (tankLeft < screenWidth - tank.offsetWidth) {
+							tank.style.left = (tankLeft + 10) + "px";
+						}
+						break;
+					default:
+						break;
+				}
+			});
+
+			// 阻止右键的使用
+			document.addEventListener("contextmenu", function(e) {
+				e.preventDefault();
+			});
+		</script>
+	</body>
+</html>
