@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>广告页面</title>
+		<style>
+			body,
+			html {
+
+				margin: 0;
+				padding: 0;
+				height: 300%;
+				/* 至少3屏高度 */
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+			}
+
+			.advert-couplet {
+				position: fixed;
+				top: 0;
+				width: 120px;
+				height: 300px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.advert-left {
+				left: 10px;
+			}
+
+			.advert-right {
+				right: 10px;
+			}
+
+			.advert-couplet img {
+				width: 100%;
+				height: auto;
+			}
+
+			.advert-couplet .close-btn {
+				position: absolute;
+				top: 0;
+				right: 0;
+				cursor: pointer;
+			}
+
+			.advert-popup {
+				position: fixed;
+				bottom: -400px;
+				right: 10px;
+				width: 200px;
+				height: 200px;
+				background-color: white;
+				border: 1px solid #ccc;
+				box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.advert-popup img {
+				width: 100%;
+				height: auto;
+			}
+
+			.advert-popup .close-btn {
+				position: absolute;
+				top: 5px;
+				right: 5px;
+				cursor: pointer;
+			}
+
+			/* 设置内容样式 */
+			.centered-content {
+				position: absolute;
+				top: 0;
+				width: 50%;
+				/* 内容宽度 */
+				text-align: center;
+				/* 文字居中 */
+				border: 1px solid #000;
+				/* 边框 */
+				padding: 200px;
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="centered-content">
+			<h1>欢迎来到购物商城</h1>
+			<p>商品列表</p>
+			<div>
+				<img src="img/主页.jpg" style="width: 800px;">
+			</div>
+		</div>
+		
+		<div class="advert-couplet advert-left">
+			<img src="img/鸡尾酒广告.jpg" alt="广告1">
+			<div class="close-btn" onclick="this.parentNode.style.display='none'">x</div>
+		</div>
+
+		<div class="advert-couplet advert-right">
+			<img src="img/牛排广告.jpg" alt="广告2">
+			<div class="close-btn" onclick="this.parentNode.style.display='none'">x</div>
+		</div>
+
+		<div class="advert-popup">
+			<img src="img/面包广告.jpg" alt="广告3">
+			<div class="close-btn" onclick="closeAdvertPopup()">x</div>
+		</div>
+
+		<script>
+			// 使用 BOM 和 DOM 方法结合来控制广告的展示
+			window.onload = function() {
+				setTimeout(showAdvertPopup, 100); // 页面加载后0.1秒显示弹窗广告
+			};
+
+			function showAdvertPopup() {
+				var advertPopup = document.querySelector('.advert-popup');
+				var bottom = -400;
+				var id = setInterval(frame, 10);
+
+				function frame() {
+					if (bottom == 10) {
+						clearInterval(id);
+					} else {
+						bottom += 5; // 每帧向上移动5px
+						advertPopup.style.bottom = bottom + 'px';
+					}
+				}
+			}
+			// 页面关闭广告
+			function closeAdvertPopup() {
+				var advertPopup = document.querySelector('.advert-popup');
+				advertPopup.style.display = 'none';
+			}
+		</script>
+
+	</body>
+</html>
