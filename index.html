@@ -1,67 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>图形打印程序</title>
+<meta charset="utf-8">
+<title>我的网站</title>
+<style>
+* { margin: 0; padding: 0;}
+a{color: #000000;text-decoration: none;}
+a:hover{color: #FF0000;}
+
+.mytitle{text-align: center;}
+#dowebok { width: 90%; margin: 0 auto; font-size: 14px;}
+#dowebok li { float: left; width: 30%; margin-left: 1%; padding-top: 1%;}
+#dowebok li img { width: 100%;}
+#dowebok li .dt { width: 100%;text-align: center;}
+#dowebok li{list-style-type: none;}
+</style>
 </head>
+
 <body>
-    <h2>请输入要打印的行数：</h2>
-    <input type="number" id="rowsInput" placeholder="请输入行数">
-    <button onclick="printShapes()">打印图形</button>
-    <div id="output"></div>
+	<h1 class="mytitle">219970143-张运松</h1>
+	<ul id="dowebok">
+		<li>
+			<div><a href="作业1.html"><img data-original="img/tibet-1.jpg" src="img/tibet-1.jpg" alt="图片1"></a></div>
+			<div class="dt"><a href="作业1.html">作品1：使用JavaScript程序打印图形</a></div>
+		</li>
+		<li>
+			<div><a href="作业2.html"><img data-original="img/tibet-2.jpg" src="img/tibet-2.jpg" alt="图片2"></a></div>
+			<div class="dt"><a href="作业2.html">作品2：使用DOM操纵图片</a></div>
+		</li>
+		<li>
+			<div><a href="task3.html"><img data-original="img/tibet-3.jpg" src="img/tibet-3.jpg" alt="图片3"></a></div>
+			<div class="dt"><a href="task3.html">作品3：会移动的坦克</a></div>
+		</li>
+		<li>
+			<div><a href="广告.html"><img data-original="img/tibet-4.jpg" src="img/tibet-4.jpg" alt="图片4"></a></div>
+			<div class="dt"><a href="广告.html">作品4：Web广告页面制作</a></div>
+		</li>
+		<!--<li>
+			<div><img data-original="img/tibet-1.jpg" src="img/tibet-1.jpg" alt="图片1"></div>
+			<div class="dt">作品1：普通网页布局展示</div>
+		</li>
+		<li>
+			<div><img data-original="img/tibet-2.jpg" src="img/tibet-2.jpg" alt="图片2"></div>
+			<div class="dt">作品2：普通网页布局展示</div>
+		</li>-->
+	</ul>
 
-    <script>
-		// 219970143-张运松
-        function printShapes() {
-            let rows = document.getElementById('rowsInput').value;
-            let output = document.getElementById('output');
-            output.innerHTML = ""; // 清空之前的输出
-
-            // 打印五行三角形
-            output.innerHTML += "五行三角形：<br>";
-            for (let i = 1; i <= rows; i++) {
-                for (let j = 1; j <= i; j++) {
-                    output.innerHTML += "*";
-                }
-                output.innerHTML += "<br>";
-            }
-            output.innerHTML += "<br>";
-
-            // 打印五行平行四边形
-            output.innerHTML += "五行平行四边形：<br>";
-            for (let i = 1; i <= rows; i++) {
-                for (let j = 1; j < i; j++) {
-                    output.innerHTML += "&nbsp;";
-                }
-                for (let k = 1; k <= rows; k++) {
-                    output.innerHTML += "*";
-                }
-                output.innerHTML += "<br>";
-            }
-            output.innerHTML += "<br>";
-
-            // 打印五行菱形
-            output.innerHTML += "五行菱形：<br>";
-            for (let i = 1; i <= rows; i++) {
-                for (let j = rows; j > i; j--) {
-                    output.innerHTML += "&nbsp;";
-                }
-                for (let k = 1; k <= 2 * i - 1; k++) {
-                    output.innerHTML += "*";
-                }
-                output.innerHTML += "<br>";
-            }
-            for (let i = rows - 1; i >= 1; i--) {
-                for (let j = rows; j > i; j--) {
-                    output.innerHTML += "&nbsp;";
-                }
-                for (let k = 1; k <= 2 * i - 1; k++) {
-                    output.innerHTML += "*";
-                }
-                output.innerHTML += "<br>";
-            }
-            output.innerHTML += "<br>";
-        }
-    </script>
 </body>
 </html>
