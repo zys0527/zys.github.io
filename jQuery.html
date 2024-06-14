@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日期选择器</title>
+	<!-- 219970143-张运松 -->
+    <script src="js/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+        body { font-size: 14px; }
+        #datepicker { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>日期选择器</h1>
+    <label for="datepicker">选择日期:</label>
+    <input type="text" id="datepicker">
+
+    <script>
+        $(function() {
+            $("#datepicker").datepicker();
+        });
+    </script>
+</body>
+</html>
