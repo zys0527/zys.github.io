@@ -1,63 +1,154 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+
 <head>
-<meta charset="utf-8">
-<title>我的网站</title>
-<style>
-* { margin: 0; padding: 0;}
-a{color: #000000;text-decoration: none;}
-a:hover{color: #FF0000;}
-
-.mytitle{text-align: center;}
-#dowebok { width: 90%; margin: 0 auto; font-size: 14px;}
-#dowebok li { float: left; width: 30%; margin-left: 1%; padding-top: 1%;}
-#dowebok li img { width: 100%;}
-#dowebok li .dt { width: 100%;text-align: center;}
-#dowebok li{list-style-type: none;}
-</style>
+    <meta charset="utf-8">
+    <title>实验五</title>
+    <link rel="stylesheet" href="https://www.jq22.com/jquery/bootstrap-4.2.1.css">
+    <link rel="stylesheet" href="https://www.jq22.com/jquery/font-awesome.4.7.0.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-	<h1 class="mytitle">219970143-张运松</h1>
-	<ul id="dowebok">
-		<li>
-			<div><a href="作业1.html"><img data-original="img/tibet-1.jpg" src="img/tibet-1.jpg" alt="图片1"></a></div>
-			<div class="dt"><a href="作业1.html">作品1：使用JavaScript程序打印图形</a></div>
-		</li>
-		
-		<li>
-			<div><a href="作业2.html"><img data-original="img/tibet-2.jpg" src="img/tibet-2.jpg" alt="图片2"></a></div>
-			<div class="dt"><a href="作业2.html">作品2：使用DOM操纵图片</a></div>
-		</li>
-		
-		<li>
-			<div><a href="作业3.html"><img data-original="img/tibet-3.jpg" src="img/tibet-3.jpg" alt="图片3"></a></div>
-			<div class="dt"><a href="作业3.html">作品3：会移动的坦克</a></div>
-		</li>
-		
-		<li>
-			<div><a href="作业4.html"><img data-original="img/tibet-4.jpg" src="img/tibet-4.jpg" alt="图片4"></a></div>
-			<div class="dt"><a href="作业4.html">作品4：Web广告页面制作</a></div>
-		</li>
-		
-		<li>
-			<div><a href="作业5.html"><img data-original="img/tibet-1.jpg" src="img/tibet-1.jpg" alt="图片5"></a></div>
-			<div class="dt"><a href="作业5.html">作品5：使用jquery修改表格</a></div>
-		</li>
-		
-		<li>
-			<div><a href="作业6.html"><img data-original="img/tibet-2.jpg" src="img/tibet-2.jpg" alt="图片6"></a></div>
-			<div class="dt"><a href="作业6.html">作品6：使用jquery制作游戏角色</a></div>
-		</li>
-		<li>
-			<div><a href="作业7.html"><img data-original="img/tibet-3.jpg" src="img/tibet-3.jpg" alt="图片7"></a></div>
-			<div class="dt"><a href="作业7.html">作品7：选择一个jquery插件制作一个页面demo</a></div>
-		</li>
-		<li>
-			<div><a href="作业8.html"><img data-original="img/tibet-4.jpg" src="img/tibet-4.jpg" alt="图片8"></a></div>
-			<div class="dt"><a href="作业8.html">作业8：用户注册验证的设计与实现</a></div>
-		</li>
-	</ul>
-
+    <div class="section dwo">
+        <div class="container">
+            <div class="row full-height justify-content-center">
+                <div class="col-12 text-center align-self-center py-5">
+                    <div class="section pb-5 pt-5 pt-sm-2 text-center">
+                        <input class="checkbox" type="checkbox" id="reg-log" name="reg-log">
+                        <div class="card-3d-wrap mx-auto">
+                            <div class="card-3d-wrapper bgk">
+                                <div class="card-front">
+                                    <div class="center-wrap">
+                                        <div class="section text-center">
+                                            <h4 class="mb-4 pb-3">登录</h4>
+                                            <div class="form-group">
+                                                <input type="email" name="logemail" class="form-style" placeholder="请输入电子邮箱" id="logemail" autocomplete="off">
+                                                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="form-group mt-2">
+                                                <input type="password" name="logpass" class="form-style" placeholder="请输入密码" id="logpass" autocomplete="off">
+                                                <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                                            </div>
+                                            <a  href="javascript:" class="btn mt-4" onclick="checkUsername()">登录</a>
+                                            <div class="d-flex justify-content-between mt-4 text-left">
+                                                <div class="flex-fill">
+                                                    <p>没有帐号？<label for="reg-log">立即注册</p>
+                                                </div>
+                                                <div class="flex-fill text-right">
+                                                    <p><a href="javascript:" class="forgot link">忘记密码？</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-back">
+                                    <div class="center-wrap">
+                                        <div class="section text-center">
+                                            <h4 class="mb-4 pb-3">注册</h4>
+                                            <div class="form-group">
+                                                <input type="text" name="registername" class="form-style" placeholder="请输入用户名" id="registername" autocomplete="off">
+                                                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="form-group mt-2">
+                                                <input type="email" name="regemail" class="form-style" placeholder="请输入电子邮箱" id="regemail" autocomplete="off">
+                                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="form-group mt-2">
+                                                <input type="password" name="registerpass" class="form-style" placeholder="请输入密码" id="registerpass" autocomplete="off">
+                                                <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                                            </div>
+                                            <a href="javascript:" class="btn mt-4" onclick="check1()">注册</a>
+                                            <p class="mb-0 mt-4 text-center">已有帐号？<label for="reg-log">立即登录</label></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	
 </body>
+<script>
+    // 登录验证函数
+	// 219970143-张运松
+    function check() {
+        var email = document.getElementById('logemail').value;
+        var password = document.getElementById('logpass').value;
+    
+        // 基本的验证，检查邮箱和密码是否为空
+        if (email === "" || password === "") {
+            alert("邮箱和密码不能为空！");
+            return false;
+        }
+        // 检查邮箱格式
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert("请输入有效的电子邮箱！");
+            return false;
+        }
+        // 检查密码长度
+        if(password.length<6){
+            alert("密码长度不能小于6位！");
+            return false;
+        } 
+        // 登录成功
+        if(password.length>=6){
+            window.location.href="./index.html";
+            return true;    
+        }
+        // 这里可以添加更多的验证逻辑，比如正则表达式检查邮箱格式等
+    
+    }
+    // 注册验证函数
+    function check1() {
+        var username = document.getElementById('registername').value;
+        var email = document.getElementById('regemail').value;
+        var password = document.getElementById('registerpass').value;
+    
+        // 基本的验证，检查用户名、邮箱和密码是否为空
+        if (username === "" || email === "" || password === "") {
+            alert("用户名、邮箱和密码不能为空！");
+            return false;
+        }
+        //检查密码长度
+        if(password.length<6){
+            alert("密码长度不能小于6位！");
+            return false;
+        }
+        //检查邮箱格式
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert("请输入有效的电子邮箱！");
+            return false;
+        }
+        //注册成功
+        if(password.length>=6){
+            alert("注册成功!请返回登录");
+          return true;
+        }
+    }
+    function checkUsername() {
+    var logemail = document.getElementById('logemail').value;
+    $.ajax({
+        url: 'check_username.php', // 服务器端脚本
+        type: 'POST',
+        data: {logemail: logemail},
+        success: function(response) {
+            if(response === 'exists') {
+                document.getElementById('result').innerText = 'Username already exists!';
+            } else {
+                document.getElementById('result').innerText = 'Username is available!';
+            }
+        },
+        error: function() {
+            document.getElementById('result').innerText = 'An error occurred!';
+        }
+    });
+}
+    </script>
+
 </html>
