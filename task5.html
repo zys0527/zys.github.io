@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>练习 5 使用 jQuery 制作游戏角色</title>
+		<style>
+			/* 219970143-张运松 */
+			.map {
+				width: 100vw;
+				height: 100vh;
+				/* 占领整个窗口 */
+				background-color: #000;
+				position: relative;
+				/* 相对定位 */
+				overflow: hidden;
+				/* 隐藏出地图外部分 */
+			}
+
+			.role {
+				position: absolute;
+				/* 绝对定位 */
+			}
+		</style>
+	</head>
+	<body>
+		<div class="map">
+			<img class="role" src="img/player_right.gif" alt="">
+		</div>
+		<script src="js/jquery-3.7.1.js"></script>
+		<script>
+			alert("使用鼠标左键控制角色，双击人物变身")
+			//219970143-张运松
+			let role = $(".role");
+			//鼠标点击，角色移动到点击位置
+			$(".map").on("click", function(e) { //点击地图
+				let x = e.pageX - role.width() / 2 + 'px'; //鼠标点击坐标-人物宽度/2
+				let y = e.pageY - role.height() / 2 + 'px'; 
+
+				if (e.pageX - role.width() / 2 < role.offset().left) { //目标点在人物左边
+					role.css({
+						'transform': 'rotateY(180deg)'
+					})
+				}
+				
+				if (e.pageX - role.width() / 2 > role.offset().left) { //目标点在人物右边
+					role.css({
+						'transform': 'rotateY(0deg)'
+					})
+				}
+				console.log(x, y);
+				$(".role").stop().animate({
+					left: x,
+					top: y
+				}, 1000); //停止之前的移动动画， 移动到点击位置
+			})
+			$(".role").on("dblclick", function() { //双击角色
+				if (role.attr("src") == 'img/player_right.gif') {
+					$(".role").attr("src", "img/playerbig_right.gif") //变身
+				} else {
+					$(".role").attr("src", "img/player_right.gif") //退出变身
+				}
+			})
+		</script>
+
+
+	</body>
+</html>
